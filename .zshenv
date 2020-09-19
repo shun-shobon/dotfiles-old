@@ -13,3 +13,9 @@ elif builtin command -v vim > /dev/null 2>&1; then
 else
     export EDITOR=vi
 fi
+
+if builtin command -v lv > /dev/null 2>&1; then
+    export PAGER="lv -c"
+else
+    export PAGER=less
+fi
