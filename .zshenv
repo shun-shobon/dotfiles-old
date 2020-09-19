@@ -6,15 +6,15 @@ export ZDOTDIR=${HOME}
 export ZHOMEDIR=${ZDOTDIR}/.zsh
 export ZRCDIR=${ZHOMEDIR}/rc
 
-if builtin command -v nvim > /dev/null 2>&1; then
+if (( ${+commands[nvim]} )); then
     export EDITOR=nvim
-elif builtin command -v vim > /dev/null 2>&1; then
+elif (( ${+commands[vim]} )); then
     export EDITOR=vim
 else
     export EDITOR=vi
 fi
 
-if builtin command -v lv > /dev/null 2>&1; then
+if (( ${+commands[lv]} )); then
     export PAGER="lv -c"
 else
     export PAGER=less
