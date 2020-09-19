@@ -5,3 +5,6 @@
 !README.md
 !.zshrc
 !.zshenv
+!.zsh/
+!.zsh/rc/
+!.zsh/rc/*.zsh
