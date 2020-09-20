@@ -18,7 +18,7 @@ bindkey -M viins '^W' backward-kill-word
 # 挿入モード中に<C-u>で行消去
 bindkey -M viins '^U' backward-kill-line
 
-# 挿入モード中はカーソルのビームにする
+# 挿入モード中はカーソルをビームにする
 function zle-keymap-select zle-line-init() {
     case ${KEYMAP} in
         vicmd)
