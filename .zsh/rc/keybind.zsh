@@ -34,9 +34,11 @@ function zle-keymap-select zle-line-init() {
     zle reset-prompt
     zle -R
 }
+
 function zle-line-finish() {
     print -n '\033[6 q'
 }
+
 zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
