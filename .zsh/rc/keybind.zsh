@@ -25,17 +25,17 @@ bindkey -M viins '^U' backward-kill-line
 function zle-keymap-select zle-line-init() {
     case ${KEYMAP} in
         vicmd)
-            print -n -- "\E]50;CursorShape=0\C-G"
+            print -n '\033[2 q'
             ;;
         viins|main)
-            print -n -- "\E]50;CursorShape=1\C-G"
+            print -n '\033[6 q'
             ;;
     esac
     zle reset-prompt
     zle -R
 }
 function zle-line-finish() {
-    print -n -- "\E]50;CursorShape=0\C-G"
+    print -n '\033[6 q'
 }
 zle -N zle-line-init
 zle -N zle-line-finish
