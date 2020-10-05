@@ -59,3 +59,13 @@ for m in visual viopp; do
         bindkey -M $m $c select-quoted
     done
 done
+
+# surroundの有効化
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+bindkey -a ds delete-surround
+bindkey -a ys add-surround
+bindkey -a cs change-surround
+bindkey -M visual S add-surround
