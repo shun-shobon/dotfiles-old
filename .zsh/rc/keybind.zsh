@@ -22,7 +22,7 @@ bindkey -M viins '^W' backward-kill-word
 bindkey -M viins '^U' backward-kill-line
 
 # 挿入モード中はカーソルをビームにする
-function zle-keymap-select zle-line-init() {
+function zle-keymap-select() {
     case ${KEYMAP} in
         vicmd)
             print -n '\033[2 q'
@@ -33,6 +33,12 @@ function zle-keymap-select zle-line-init() {
     esac
     zle reset-prompt
     zle -R
+}
+
+function zle-line-init() {
+    # 最初に選択されるモードをnormalモードにする
+    zle -K vicmd
+    zle-keymap-select
 }
 
 function zle-line-finish() {
