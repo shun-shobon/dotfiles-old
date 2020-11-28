@@ -3,8 +3,12 @@
 
 !.gitignore
 !README.md
-!/.zshrc
 !/.zshenv
-!/.zsh/
-!/.zsh/rc/
-!/.zsh/rc/*.zsh
+!/.config/
+!/.config/zsh/
+!/.config/zsh/**
+!/.config/zsh/rc/
+!/.config/zsh/rc/**
+!/.cache/
+!/.cache/zsh/
+!.gitkeep
