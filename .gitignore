@@ -10,5 +10,7 @@
 !/.config/zsh/rc/
 !/.config/zsh/rc/**
 !/.cache/
+!/.cache/zsh/
 !/.data/
+!/.data/zsh/
 !.gitkeep
