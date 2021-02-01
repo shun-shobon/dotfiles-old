@@ -1,6 +1,8 @@
 autoload -Uz colors
 colors
 
+fast-theme -q default
+
 ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
 ZSH_THEME_GIT_PROMPT_PREFIX="["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]"
