@@ -8,3 +8,7 @@ if ! test -d "${ZINIT[HOME_DIR]}"; then
 fi
 
 source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
+
+# git-prompt.zsh
+zinit ice atload'!_zsh_git_prompt_precmd_hook' lucid
+zinit load woefe/git-prompt.zsh
