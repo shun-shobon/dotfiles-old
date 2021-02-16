@@ -37,5 +37,3 @@ source "${ZRCDIR}/completion.zsh"
 # プロンプト                                               #
 ############################################################
 source "${ZRCDIR}/prompt.zsh"
-
-

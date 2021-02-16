@@ -69,3 +69,6 @@ bindkey -a ds delete-surround
 bindkey -a ys add-surround
 bindkey -a cs change-surround
 bindkey -M visual S add-surround
+
+bindkey -M viins '^N' expand-or-complete
+bindkey -M viins '^P' reverse-menu-complete
