@@ -15,3 +15,6 @@ zinit load woefe/git-prompt.zsh
 
 # fast-syntax-highlighting
 zinit light zdharma/fast-syntax-highlighting
+
+# autocomplete
+zinit light marlonrichert/zsh-autocomplete

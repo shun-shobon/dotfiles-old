@@ -3,7 +3,7 @@
 ############################################################
 
 # キーバインドを一度リセット
-bindkey -d
+#bindkey -d
 
 # viのキーバインド
 bindkey -v
@@ -70,5 +70,6 @@ bindkey -a ys add-surround
 bindkey -a cs change-surround
 bindkey -M visual S add-surround
 
+# 補完を<C-n>と<C-p>で選択できるようにする
 bindkey -M viins '^N' expand-or-complete
 bindkey -M viins '^P' reverse-menu-complete
