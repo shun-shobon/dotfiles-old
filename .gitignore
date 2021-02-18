@@ -4,11 +4,12 @@
 !.gitignore
 !README.md
 !/.zshenv
+!/.vimrc
 !/.config/
 !/.config/zsh/
 !/.config/zsh/**
-!/.config/zsh/rc/
-!/.config/zsh/rc/**
+!/.config/nvim/
+!/.config/nvim/**
 !/.cache/
 !/.cache/zsh/
 !/.data/
