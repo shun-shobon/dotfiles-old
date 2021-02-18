@@ -14,7 +14,11 @@ syntax on
 filetype plugin indent on
 
 " viminfoファイルの出力先を変更
-execute "set viminfo+=n" . g:vim_cache_dir . "/viminfo"
+if has("nvim")
+    execute "set viminfo+=n" . g:vim_cache_dir . "/nviminfo"
+else
+    execute "set viminfo+=n" . g:vim_cache_dir . "/viminfo"
+endif
 
 " Undo履歴を永続化する
 execute "set undodir=" . g:vim_cache_dir . "/undo"
