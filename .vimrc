@@ -7,3 +7,6 @@ let s:vim_rc_dir = g:vim_config_dir . "/rc"
 
 " 基本設定
 execute "source " . s:vim_rc_dir . "/base.vim"
+
+" 表示関係
+execute "source " . s:vim_rc_dir . "/display.vim"
