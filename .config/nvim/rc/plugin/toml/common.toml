@@ -1,2 +1,6 @@
 [[plugins]]
 repo = "Shougo/dein.vim"
+
+[[plugins]]
+repo = "vim-jp/vimdoc-ja"
+hook_add = "set helplang=ja,en"
