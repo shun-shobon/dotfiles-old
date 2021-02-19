@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # <C-s>をPrefixキーにする
 set -g prefix C-s
 bind C-s send-prefix

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # 256色表示に対応する
 set -g default-terminal screen-256color
 set -sa terminal-overrides ",xterm-256color:RGB"
