@@ -7,11 +7,14 @@ scriptencoding utf-8
 " 既存ファイルを開くとき、Vimが使用する文字コードを判定する順番
 set fileencodings=utf-8,iso-2033-jp,euc-jp,sjis
 
-" シンタックスハイライトを有効にする
-syntax on
+" Vimのみここでシンタックスハイライトとファイルタイププラグインを有効にする
+if !has("nvim")
+    " シンタックスハイライトを有効にする
+    syntax on
 
-" ファイルタイププラグインを有効にする
-filetype plugin indent on
+    " ファイルタイププラグインを有効にする
+    filetype plugin indent on
+endif
 
 " viminfoファイルの出力先を変更
 if has("nvim")
