@@ -21,3 +21,6 @@ execute "source " . s:vim_rc_dir . "/search.vim"
 
 " 編集関係
 execute "source " . s:vim_rc_dir . "/edit.vim"
+
+" キーバインド関係
+execute "source " . s:vim_rc_dir . "/keybind.vim"
