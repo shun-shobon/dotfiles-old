@@ -8,3 +8,8 @@ hook_add = "set helplang=ja,en"
 [[plugins]]
 repo = "joshdick/onedark.vim"
 hook_add = "execute 'source ' . g:plugin_dir . '/onedark.vim'"
+
+[[plugins]]
+repo = "vim-airline/vim-airline"
+depends = "onedark.vim"
+hook_add = "execute 'source ' . g:plugin_dir . '/airline.vim'"
