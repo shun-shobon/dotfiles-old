@@ -10,6 +10,8 @@
 !/.config/zsh/**
 !/.config/nvim/
 !/.config/nvim/**
+!/.config/tmux/
+!/.config/tmux/**
 !/.cache/
 !/.cache/zsh/
 !/.data/
