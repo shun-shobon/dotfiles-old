@@ -13,3 +13,6 @@ hook_add = "execute 'source ' . g:plugin_dir . '/onedark.vim'"
 repo = "vim-airline/vim-airline"
 depends = "onedark.vim"
 hook_add = "execute 'source ' . g:plugin_dir . '/airline.vim'"
+
+[[plugins]]
+repo = "sheerun/vim-polyglot"
