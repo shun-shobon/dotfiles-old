@@ -24,3 +24,6 @@ execute "source " . s:vim_rc_dir . "/edit.vim"
 
 " キーバインド関係
 execute "source " . s:vim_rc_dir . "/keybind.vim"
+
+" マクロ関係
+execute "source " . s:vim_rc_dir . "/macro.vim"
