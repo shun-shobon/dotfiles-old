@@ -21,13 +21,3 @@ ZINIT[PLUGINS_DIR]="${ZINIT[HOME_DIR]}/plugins"
 ZINIT[COMPLETIONS_DIR]="${ZINIT[HOME_DIR]}/completions"
 ZINIT[SNIPPETS_DIR]="${ZINIT[HOME_DIR]}/snippets"
 ZINIT[ZCOMPDUMP_PATH]="${ZSH[COMPDUMP]}"
-
-# gnupgのdotfileの場所を設定
-export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
-
-# Vagrantのdotfileの場所を設定
-export VAGRANT_HOME="${XDG_DATA_HOME}/vagrant"
-export VAGRANT_ALIAS_FILE="${VAGANT_HOME}/aliases"
-
-# Cargoのdotfileの場所を設定
-export CARGO_HOME="${XDG_DATA_HOME}/cargo"
