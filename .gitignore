@@ -7,7 +7,9 @@
 !/.vimrc
 !/.config/
 !/.config/zsh/
-!/.config/zsh/**
+!/.config/zsh/.zshrc
+!/.config/zsh/rc/
+!/.config/zsh/rc/**
 !/.config/nvim/
 !/.config/nvim/**
 !/.config/tmux/
