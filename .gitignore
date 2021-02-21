@@ -18,4 +18,6 @@
 !/.cache/zsh/
 !/.data/
 !/.data/zsh/
+!/.bin/
+!/.bin/**
 !.gitkeep
