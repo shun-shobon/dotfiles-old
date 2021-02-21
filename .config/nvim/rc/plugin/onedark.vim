@@ -8,5 +8,7 @@ let g:onedark_hide_endofbuffer = 1
 " イタリックを有効にする
 let g:onedark_terminal_italics = 1
 
-" カラースキームをOnedarkにする
+autocmd vimrc Colorscheme * highlight Normal guibg=none
+
+" カラースキームをOneDarkにする
 colorscheme onedark
