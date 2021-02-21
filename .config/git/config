@@ -1,0 +1,8 @@
+[user]
+	email = me@shun.technology
+	name = Shuntaro Nishizawa
+	signingKey = 045D846B69EB26FC
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg

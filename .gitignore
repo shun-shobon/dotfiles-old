@@ -14,6 +14,8 @@
 !/.config/nvim/**
 !/.config/tmux/
 !/.config/tmux/**
+!/.config/git/
+!/.config/git/**
 !/.cache/
 !/.cache/zsh/
 !/.data/
