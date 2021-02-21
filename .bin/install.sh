@@ -8,29 +8,32 @@ print_help() {
 }
 
 link_to_home() {
-  local backup_dir="${HOME}/.dotbackup"
+  local backup_dir="$HOME/.dotbackup"
   command echo "backup old dotfiles..."
-  if [[ ! -d "${HOME}/.dotbackup" ]]; then
-    command echo "${backup_dir} is not found. make it automatically."
-    command mkdir "${backup_dir}"
+  if [[ ! -d "$HOME/.dotbackup" ]]; then
+    command echo "$backup_dir is not found. make it automatically."
+    command mkdir "$backup_dir"
   fi
 
   local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-  local dot_dir="$(dirname ${script_dir})"
-  if [[ "${HOME}" == "${dot_dir}" ]]; then
+  local dot_dir="$(dirname "$script_dir")"
+  if [[ "$HOME" == "$dot_dir" ]]; then
     command echo "Error: dotfile dir is a same as home dir"
     exit 1
   fi
+  local ignores=(".git" ".gitignore")
   for file in $dot_dir/.??*; do
-    local filename="$(basename "${file}")"
-    [[ "${filename}" == ".git" ]] && continue;
-    if [[ -L "${HOME}/${filename}" ]]; then
-      command rm -f "${HOME}/${filename}"
+    local filename="$(basename "$file")"
+    if echo ${ignores[@]} | grep -q "$filename"; then
+      continue
     fi
-    if [[ -e "${HOME}/${filename}" ]]; then
-      command mv "${HOME}/${filename}" "${backup_dir}"
+    if [[ -L "$HOME/$filename" ]]; then
+      command rm -f "$HOME/$filename"
     fi
-    command ln -snf "${file}" "${HOME}"
+    if [[ -e "$HOME/$filename" ]]; then
+      command mv "$HOME/$filename" "$backup_dir"
+    fi
+    command ln -snf "$file" "$HOME"
   done
 }
 
@@ -42,7 +45,8 @@ while [[ $# -gt 0 ]]; do
     "--help" | "-h")
       print_help
       exit 1
-    "*")
+      ;;
+    *)
       ;;
   esac
   shift
