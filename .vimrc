@@ -4,9 +4,9 @@ augroup vimrc
 augroup END
 
 " Vimのコンフィグディレクトリを設定
-let g:vim_config_dir = expand("$XDG_CONFIG_HOME/nvim")
-let g:vim_cache_dir = expand("$XDG_CACHE_HOME/nvim")
-let g:vim_data_dir = expand("$XDG_DATA_HOME/nvim")
+let g:vim_config_dir = expand("$XDG_CONFIG_HOME/vim")
+let g:vim_cache_dir = expand("$XDG_CACHE_HOME/vim")
+let g:vim_data_dir = expand("$XDG_DATA_HOME/vim")
 
 let g:vim_rc_dir = g:vim_config_dir . "/rc"
 
@@ -29,6 +29,4 @@ execute "source " . g:vim_rc_dir . "/keybind.vim"
 execute "source " . g:vim_rc_dir . "/macro.vim"
 
 " NeoVimのみプラグインを読み込む
-if has("nvim")
-    execute "source " . g:vim_rc_dir . "/plugin/dein.vim"
-endif
+execute "source " . g:vim_rc_dir . "/plugin/dein.vim"

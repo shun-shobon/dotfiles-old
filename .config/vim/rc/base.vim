@@ -8,7 +8,7 @@ scriptencoding utf-8
 set fileencodings=utf-8,iso-2033-jp,euc-jp,sjis
 
 " viminfoファイルの出力先を変更
-execute "set viminfo+=n" . g:vim_cache_dir . "/nviminfo"
+execute "set viminfo+=n" . g:vim_cache_dir . "/viminfo"
 
 " Undo履歴を永続化する
 execute "set undodir=" . g:vim_cache_dir . "/undo"

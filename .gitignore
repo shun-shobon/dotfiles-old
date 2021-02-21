@@ -10,6 +10,8 @@
 !/.config/zsh/.zshrc
 !/.config/zsh/rc/
 !/.config/zsh/rc/**
+!/.config/vim/
+!/.config/vim/**
 !/.config/nvim/
 !/.config/nvim/**
 !/.config/tmux/
@@ -18,8 +20,12 @@
 !/.config/git/**
 !/.cache/
 !/.cache/zsh/
+!/.cache/vim/
+!/.cache/vim/swap/
+!/.cache/vim/undo/
 !/.data/
 !/.data/zsh/
+!/.data/vim/
 !/.bin/
 !/.bin/**
 !.gitkeep
