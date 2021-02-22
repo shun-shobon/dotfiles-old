@@ -12,6 +12,8 @@ ZSH[DATA]="${XDG_DATA_HOME}/zsh"
 ZSH[COMPDUMP]="${ZSH[CACHE]}/compdump"
 # 履歴
 ZSH[HISTORY]="${ZSH[DATA]}/history"
+# 補完候補が多すぎるときに尋ねない
+export LISTMAX=10000
 
 # zinitの設定
 declare -A ZINIT

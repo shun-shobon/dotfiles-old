@@ -18,7 +18,7 @@ setopt COMPLETE_IN_WORD                # 補完が開始してもカーソルを
 setopt GLOB_COMPLETE                   # グロブパターンを展開せず、補完として表示させる
 setopt LIST_PACKED                     # 補完リストの行数を少なくする
 setopt LIST_ROWS_FIRST                 # 補完を水平方向で並べる
-setopt REC_EXACT                       # 完全一致した場合は補完しない
+#setopt REC_EXACT                       # 完全一致した場合は補完しない
 
 
 ############################################################
