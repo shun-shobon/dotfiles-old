@@ -129,18 +129,6 @@ vim.api.nvim_set_keymap("n", "#", "#zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "g*", "g*zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "g#", "g#zz", { noremap = true })
 
--- オペレータ待機モード中のiの入力を省略
-vim.api.nvim_set_keymap("o", "w", "iw", { noremap = true })
-vim.api.nvim_set_keymap("o", "W", "iW", { noremap = true })
-vim.api.nvim_set_keymap("o", "p", "ip", { noremap = true })
-vim.api.nvim_set_keymap("o", "(", "i(", { noremap = true })
-vim.api.nvim_set_keymap("o", "[", "i[", { noremap = true })
-vim.api.nvim_set_keymap("o", "{", "i{", { noremap = true })
-vim.api.nvim_set_keymap("o", "'", "i'", { noremap = true })
-vim.api.nvim_set_keymap("o", '"', 'i"', { noremap = true })
-vim.api.nvim_set_keymap("o", "`", "i`", { noremap = true })
-vim.api.nvim_set_keymap("o", "t", "it", { noremap = true })
-
 -- 数値指定がない場合は表示行でj, k移動
 vim.api.nvim_set_keymap(
   "n",
