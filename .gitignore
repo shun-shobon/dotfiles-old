@@ -20,6 +20,8 @@
 !/.config/tmux/**
 !/.config/git/
 !/.config/git/**
+!/.config/npm/
+!/.config/npm/**
 !/.cache/
 !/.cache/zsh/
 !/.cache/vim/

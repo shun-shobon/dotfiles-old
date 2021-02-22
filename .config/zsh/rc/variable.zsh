@@ -27,3 +27,6 @@ ZINIT[ZCOMPDUMP_PATH]="${ZSH[COMPDUMP]}"
 # nvmの設定
 export NVM_DIR="${XDG_DATA_HOME}/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+
+# npmの設定
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
