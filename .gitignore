@@ -13,7 +13,7 @@
 !/.config/vim/
 !/.config/vim/**
 !/.config/nvim/
-!/.config/nvim/**
+!/.config/nvim/init.lua
 !/.config/tmux/
 !/.config/tmux/**
 !/.config/git/
