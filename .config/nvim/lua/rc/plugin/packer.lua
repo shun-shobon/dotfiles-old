@@ -47,4 +47,6 @@ require("packer").startup(function ()
   }
 
   use { "sheerun/vim-polyglot" }
+
+  use { "nvim-lua/completion-nvim" }
 end)
