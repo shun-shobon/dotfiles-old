@@ -222,17 +222,12 @@ require("packer").startup(function ()
   }
 
   use {
-    "vim-airline/vim-airline",
-    requires = { "joshdick/onedark.vim" },
+    "hoob3rt/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function ()
-      -- カラースキームをOneDarkにする
-      vim.g.airline_theme = "onedark"
-      -- PowerLine Fontを有効にする
-      vim.g.airline_powerline_fonts = 1
-      -- スマートタブ機能を有効にする
-      vim.cmd("let g:airline#extensions#tabline#enabled = 1")
-      -- タブのインデックスを表示する
-      vim.cmd("let g:airline#extensions#tabline#buffer_idx_mode = 1")
+      local lualine = require("lualine")
+      lualine.status()
+      lualine.options.theme = "onedark"
     end
   }
 
