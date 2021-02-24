@@ -23,3 +23,9 @@ vim.bo.expandtab = true
 
 -- インデントを考慮して改行する
 vim.bo.smartindent = true
+
+-- 補完の仕方を変更
+vim.o.completeopt = "menuone,noinsert,noselect"
+
+-- 補完時にメッセージを出さない
+vim.o.shortmess = vim.o.shortmess .. "c"
