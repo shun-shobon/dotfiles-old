@@ -95,4 +95,29 @@ require("packer").startup(function ()
       }
     end,
   }
+
+  use {
+    "kyazdani42/nvim-tree.lua",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    config = function ()
+      vim.g.nvim_tree_ignore = { ".git" }
+      vim.g.nvim_tree_quit_on_open = 1
+      vim.g.nvim_tree_indent_markers = 1
+      vim.g.nvim_tree_icons = {
+        git = {
+          unstaged = "",
+          staged = "",
+          unmerged = "",
+          renamed = "",
+          untracked = "",
+        },
+      }
+
+      vim.api.nvim_set_keymap("n", "[Prefix]f", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
+
+      vim.g.nvim_tree_bindings = {
+        ["R"] = "<Cmd>NvimTreeRefresh<CR>",
+      }
+    end
+  }
 end)
