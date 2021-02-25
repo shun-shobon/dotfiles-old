@@ -82,4 +82,17 @@ require("packer").startup(function ()
       lspconfig.tsserver.setup { on_attach = on_attach }
     end
   }
+
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    config = function ()
+      require("nvim-treesitter.configs").setup {
+        ensure_installed = "all",
+        highlight = {
+          enable = true
+        },
+      }
+    end,
+  }
 end)
