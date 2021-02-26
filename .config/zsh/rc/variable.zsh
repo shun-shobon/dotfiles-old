@@ -24,6 +24,9 @@ ZINIT[COMPLETIONS_DIR]="${ZINIT[HOME_DIR]}/completions"
 ZINIT[SNIPPETS_DIR]="${ZINIT[HOME_DIR]}/snippets"
 ZINIT[ZCOMPDUMP_PATH]="${ZSH[COMPDUMP]}"
 
+# gpgの設定
+export GPG_TTY=$(tty)
+
 # nvmの設定
 export NVM_DIR="${XDG_DATA_HOME}/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
