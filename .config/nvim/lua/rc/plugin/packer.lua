@@ -80,6 +80,7 @@ require("packer").startup(function ()
       end
 
       lspconfig.tsserver.setup { on_attach = on_attach }
+      lspconfig.hls.setup { on_attach = on_attach }
     end
   }
 
