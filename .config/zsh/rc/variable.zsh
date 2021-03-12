@@ -35,6 +35,5 @@ export NVM_DIR="${XDG_DATA_HOME}/nvm"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export PATH="${PATH}:${XDG_DATA_HOME}/npm/bin"
 
-# ghcupの設定
-export GHCUP_USE_XDG_DIRS=true
-source "${XDG_DATA_HOME}/ghcup/env"
+# stackの設定
+export STACK_ROOT="${XDG_DATA_HOME}/stack"
