@@ -131,4 +131,12 @@ require("packer").startup(function ()
       }
     end
   }
+
+  use {
+    "blackcauldron7/surround.nvim",
+    config = function ()
+      vim.g.surround_mappings_style = "surround"
+      require("surround").setup {}
+    end
+  }
 end)
