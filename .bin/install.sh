@@ -21,7 +21,7 @@ link_to_home() {
     command echo "Error: dotfile dir is a same as home dir"
     exit 1
   fi
-  local ignores=(".git" ".gitignore")
+  local ignores=(".git" ".gitignore" ".gitattributes")
   for file in $dot_dir/.??*; do
     local filename="$(basename "$file")"
     if echo ${ignores[@]} | grep -q "$filename"; then

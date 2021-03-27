@@ -10,3 +10,6 @@
 	defaultBranch = master
 [gpg]
 	program = gpg
+[filter "npmrc"]
+	smudge = cat
+	clean = sed -E '/^\\/\\/.+\\/:_authToken=.+/d'
