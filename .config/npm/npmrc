@@ -6,3 +6,5 @@ init-author-email=me@shun.technology
 init-author-url=https://github.com/shun-shobon
 init-license=MIT
 init-version=0.0.0
+
+@shun-shobon:registry=https://npm.pkg.github.com
