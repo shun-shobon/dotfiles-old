@@ -38,11 +38,12 @@ require("packer").startup(function ()
     "hoob3rt/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function ()
-      local lualine = require("lualine")
-      -- ステータスラインを初期化
-      lualine.status()
-      -- テーマをOneDarkにする
-      lualine.options.theme = "onedark"
+      require("lualine").setup {
+        options = {
+          -- テーマをOneDarkにする
+          theme = "onedark",
+        },
+      }
     end
   }
 
