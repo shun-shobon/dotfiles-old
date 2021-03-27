@@ -6,5 +6,7 @@
 	gpgsign = true
 [pull]
 	ff = only
+[init]
+	defaultBranch = master
 [gpg]
 	program = gpg
