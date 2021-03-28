@@ -43,6 +43,3 @@ export PATH="${PATH}:${XDG_DATA_HOME}/npm/bin"
 
 # stackの設定
 export STACK_ROOT="${XDG_DATA_HOME}/stack"
-
-# Dockerの設定
-export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
