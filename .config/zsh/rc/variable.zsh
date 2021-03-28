@@ -27,6 +27,9 @@ ZINIT[ZCOMPDUMP_PATH]="${ZSH[COMPDUMP]}"
 # gpgの設定
 export GPG_TTY=$(tty)
 
+# giboの設定
+export GIBO_BOILERPLATES="${XDG_DATA_HOME}/gibo"
+
 # nvmの設定
 export NVM_DIR="${XDG_DATA_HOME}/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
