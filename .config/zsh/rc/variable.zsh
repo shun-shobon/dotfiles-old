@@ -30,6 +30,9 @@ export GPG_TTY=$(tty)
 # giboの設定
 export GIBO_BOILERPLATES="${XDG_DATA_HOME}/gibo"
 
+# Node.jsの設定
+export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
+
 # nvmの設定
 export NVM_DIR="${XDG_DATA_HOME}/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
