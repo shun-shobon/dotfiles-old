@@ -2,7 +2,6 @@ local packer_dir = data_dir .. "/site/pack/packer/opt/packer.nvim"
 if vim.fn.empty(vim.fn.glob(packer_dir)) > 0 then
   vim.cmd("!git clone https://github.com/wbthomason/packer.nvim " .. packer_dir)
 end
-
 vim.cmd("packadd packer.nvim")
 
 require("packer").startup(function ()
@@ -92,6 +91,38 @@ require("packer").startup(function ()
           },
         },
       }
+    end
+  }
+
+  use {
+    "mhartington/formatter.nvim",
+    config = function ()
+      local prettier_config = {
+        function ()
+          return {
+            exe = "prettier",
+            args = { "--stdin-filepath", vim.api.nvim_buf_get_name(0) },
+            stdin = true,
+          }
+        end
+      }
+
+      require("formatter").setup {
+        logging = false,
+        filetype = {
+          javascript = prettier_config,
+          javascriptreact = prettier_config,
+          typescript = prettier_config,
+          typescriptreact = prettier_config,
+          html = prettier_config,
+          css = prettier_config,
+          scss = prettier_config,
+          json = prettier_config,
+          yaml = prettier_config,
+        },
+      }
+
+      vim.cmd("autocmd init BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css,*.scss,*.json,*.yaml FormatWrite")
     end
   }
 
