@@ -145,6 +145,18 @@ require("packer").startup(function ()
   }
 
   use {
+    "p00f/nvim-ts-rainbow",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    config = function ()
+      require("nvim-treesitter.configs").setup {
+        rainbow = {
+          enable = true,
+        },
+      }
+    end
+  }
+
+  use {
     "kyazdani42/nvim-tree.lua",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function ()
