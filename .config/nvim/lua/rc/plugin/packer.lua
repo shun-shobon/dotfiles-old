@@ -157,6 +157,44 @@ require("packer").startup(function ()
   }
 
   use {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    config = function ()
+      require("nvim-treesitter.configs").setup {
+        textobjects = {
+          select = {
+            enable = true,
+            keymaps = {
+              ["if"] = "@function.outer",
+              ["af"] = "@function.inner",
+              ["ic"] = "@class.outer",
+              ["af"] = "@class.inner",
+            },
+          },
+          move = {
+            enable = true,
+            goto_next_start = {
+              ["]m"] = "@function.outer",
+              ["]]"] = "@class.outer",
+            },
+            goto_next_end = {
+              ["]M"] = "@function.outer",
+              ["]["] = "@class.outer",
+            },
+            goto_previous_start = {
+              ["[m"] = "@function.outer",
+              ["[["] = "@class.outer",
+            },
+            goto_previous_end = {
+              ["[m"] = "@function.outer",
+              ["[]"] = "@class.outer",
+            },
+          },
+        },
+      }
+    end
+  }
+
+  use {
     "kyazdani42/nvim-tree.lua",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function ()
