@@ -16,24 +16,6 @@ require("packer").startup(function ()
   }
 
   use {
-    "joshdick/onedark.vim",
-    config = function ()
-      -- Tmux環境下でも動作するようにする
-      if vim.fn.has("termguicolors") == 1 then
-        vim.o.termguicolors = true
-      end
-      -- ファイル末の"~"を非表示にする
-      vim.g.onedark_hide_endofbuffer = 1
-      -- イタリック体を有効にする
-      vim.g.onedark_terminal_italics = 1
-      -- 背景を透過させる
-      vim.cmd("autocmd init Colorscheme * highlight Normal guibg=none")
-      -- カラースキームをOneDarkにする
-      vim.cmd("colorscheme onedark")
-    end
-  }
-
-  use {
     "hoob3rt/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function ()
@@ -192,6 +174,19 @@ require("packer").startup(function ()
         },
       }
     end
+  }
+
+  use {
+    "christianchiarulli/nvcode-color-schemes.vim",
+    config = function ()
+      if vim.fn.has("termguicolors") == 1 then
+        vim.o.termguicolors = true
+      end
+      -- 背景を透過させる
+      vim.cmd("autocmd init Colorscheme * highlight Normal guibg=none")
+      -- カラースキームをOneDarkにする
+      vim.cmd("colorscheme onedark")
+    end,
   }
 
   use {
