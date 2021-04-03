@@ -24,8 +24,13 @@ ZINIT[COMPLETIONS_DIR]="${ZINIT[HOME_DIR]}/completions"
 ZINIT[SNIPPETS_DIR]="${ZINIT[HOME_DIR]}/snippets"
 ZINIT[ZCOMPDUMP_PATH]="${ZSH[COMPDUMP]}"
 
+# Vagrantの設定
+export VAGRANT_HOME="${XDG_DATA_HOME}/vagrant"
+export VAGRANT_ALIAS_FILE="${VAGRANT_HOME}/aliases"
+
 # gpgの設定
 export GPG_TTY=$(tty)
+export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 
 # giboの設定
 export GIBO_BOILERPLATES="${XDG_DATA_HOME}/gibo"
@@ -46,3 +51,9 @@ export GOPATH="${XDG_DATA_HOME}/go"
 
 # stackの設定
 export STACK_ROOT="${XDG_DATA_HOME}/stack"
+
+# Cargoの設定
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+
+# rustupの設定
+export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
