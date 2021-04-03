@@ -1,6 +1,9 @@
 " 行番号を表示
 set number
 
+" スクロールにオフセットを持たせる
+set scrolloff=5
+
 " 自動改行を無効化
 set textwidth=0
 

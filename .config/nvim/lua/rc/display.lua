@@ -1,6 +1,9 @@
 -- 行番号を表示
 vim.wo.number = true
 
+-- スクロールにオフセットを持たせる
+vim.wo.scrolloff = 5
+
 -- 自動改行を無効化
 vim.bo.textwidth = 0
 
