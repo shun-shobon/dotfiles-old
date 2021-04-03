@@ -114,6 +114,7 @@ require("packer").startup(function ()
       "romgrk/nvim-treesitter-context",
       "p00f/nvim-ts-rainbow",
       "nvim-treesitter/nvim-treesitter-textobjects",
+      "windwp/nvim-ts-autotag",
       "christianchiarulli/nvcode-color-schemes.vim",
     },
     run = ":TSUpdate",
@@ -124,6 +125,9 @@ require("packer").startup(function ()
           enable = true
         },
         rainbow = {
+          enable = true,
+        },
+        autotag = {
           enable = true,
         },
         textobjects = {
