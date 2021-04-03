@@ -110,6 +110,12 @@ require("packer").startup(function ()
 
   use {
     "nvim-treesitter/nvim-treesitter",
+    requires = {
+      "romgrk/nvim-treesitter-context",
+      "p00f/nvim-ts-rainbow",
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "christianchiarulli/nvcode-color-schemes.vim",
+    },
     run = ":TSUpdate",
     config = function ()
       require("nvim-treesitter.configs").setup {
@@ -117,31 +123,9 @@ require("packer").startup(function ()
         highlight = {
           enable = true
         },
-      }
-    end,
-  }
-
-  use {
-    "romgrk/nvim-treesitter-context",
-    requires = { "nvim-treesitter/nvim-treesitter" },
-  }
-
-  use {
-    "p00f/nvim-ts-rainbow",
-    requires = { "nvim-treesitter/nvim-treesitter" },
-    config = function ()
-      require("nvim-treesitter.configs").setup {
         rainbow = {
           enable = true,
         },
-      }
-    end
-  }
-
-  use {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    config = function ()
-      require("nvim-treesitter.configs").setup {
         textobjects = {
           select = {
             enable = true,
@@ -167,24 +151,17 @@ require("packer").startup(function ()
               ["[["] = "@class.outer",
             },
             goto_previous_end = {
-              ["[m"] = "@function.outer",
+              ["[M"] = "@function.outer",
               ["[]"] = "@class.outer",
             },
           },
         },
       }
-    end
-  }
 
-  use {
-    "christianchiarulli/nvcode-color-schemes.vim",
-    config = function ()
       if vim.fn.has("termguicolors") == 1 then
         vim.o.termguicolors = true
       end
-      -- 背景を透過させる
       vim.cmd("autocmd init Colorscheme * highlight Normal guibg=none")
-      -- カラースキームをOneDarkにする
       vim.cmd("colorscheme onedark")
     end,
   }
