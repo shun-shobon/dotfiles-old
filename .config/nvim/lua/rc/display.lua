@@ -1,9 +1,6 @@
 -- 行番号を表示
 vim.wo.number = true
 
--- 行番号の欄の幅を最低幅を設定する
-vim.wo.nuw = 6
-
 -- スクロールにオフセットを持たせる
 vim.wo.scrolloff = 5
 
