@@ -213,4 +213,17 @@ require("packer").startup(function ()
       vim.api.nvim_set_keymap("n", "<C-k>", "<Cmd>HopLine<CR>", { noremap = true, silent = true })
     end,
   }
+
+  use {
+    "lewis6991/gitsigns.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "christianchiarulli/nvcode-color-schemes.vim"
+    },
+    config = function ()
+      require("gitsigns").setup {
+        current_line_blame = true,
+      }
+    end
+  }
 end)
