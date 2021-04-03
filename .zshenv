@@ -6,6 +6,14 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.data"
 
+# PATHの設定
+path=(
+  ${XDG_DATA_HOME}/npm/bin(N-/)
+  ${XDG_DATA_HOME}/go/bin(N-/)
+  ${XDG_DATA_HOME}/cargo/bin(N-/)
+  $path
+)
+
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZRCDIR="${ZDOTDIR}/rc"
 

@@ -44,7 +44,6 @@ export NVM_DIR="${XDG_DATA_HOME}/nvm"
 
 # npmの設定
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-export PATH="${PATH}:${XDG_DATA_HOME}/npm/bin"
 
 # Goの設定
 export GOPATH="${XDG_DATA_HOME}/go"
