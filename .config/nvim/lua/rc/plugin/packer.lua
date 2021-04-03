@@ -233,4 +233,12 @@ require("packer").startup(function ()
       require("nvim-autopairs").setup {}
     end,
   }
+
+  use {
+    "phaazon/hop.nvim",
+    config = function ()
+      vim.api.nvim_set_keymap("n", "<C-j>", "<Cmd>HopWord<CR>", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<C-k>", "<Cmd>HopLine<CR>", { noremap = true, silent = true })
+    end,
+  }
 end)
