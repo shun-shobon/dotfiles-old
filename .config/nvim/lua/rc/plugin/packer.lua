@@ -230,4 +230,13 @@ require("packer").startup(function ()
       }
     end
   }
+
+  use {
+    "wfxr/minimap.vim",
+    run = ":!cargo install --locked code-minimap",
+    config = function ()
+      vim.g.minimap_auto_start = 1
+      vim.g.minimap_width = 15
+    end
+  }
 end)
