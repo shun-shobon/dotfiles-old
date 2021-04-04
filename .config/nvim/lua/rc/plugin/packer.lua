@@ -119,6 +119,12 @@ require("packer").startup(function ()
     },
     run = ":TSUpdate",
     config = function ()
+      if vim.fn.has("termguicolors") == 1 then
+        vim.o.termguicolors = true
+      end
+      vim.cmd("autocmd init Colorscheme * highlight Normal guibg=none")
+      vim.cmd("colorscheme onedark")
+
       require("nvim-treesitter.configs").setup {
         ensure_installed = "all",
         highlight = {
@@ -161,12 +167,6 @@ require("packer").startup(function ()
           },
         },
       }
-
-      if vim.fn.has("termguicolors") == 1 then
-        vim.o.termguicolors = true
-      end
-      vim.cmd("autocmd init Colorscheme * highlight Normal guibg=none")
-      vim.cmd("colorscheme onedark")
     end,
   }
 
@@ -222,7 +222,7 @@ require("packer").startup(function ()
     "lewis6991/gitsigns.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
-      "christianchiarulli/nvcode-color-schemes.vim"
+      "nvim-treesitter/nvim-treesitter",
     },
     config = function ()
       require("gitsigns").setup {
