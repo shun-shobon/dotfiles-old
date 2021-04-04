@@ -239,4 +239,16 @@ require("packer").startup(function ()
       vim.g.minimap_width = 15
     end
   }
+
+  use {
+    "monaqa/dial.nvim",
+    config = function ()
+      vim.api.nvim_set_keymap("n", "<C-a>", "<Plug>(dial-increment)", {})
+      vim.api.nvim_set_keymap("n", "<C-x>", "<Plug>(dial-decrement)", {})
+      vim.api.nvim_set_keymap("v", "<C-a>", "<Plug>(dial-increment)", {})
+      vim.api.nvim_set_keymap("v", "<C-x>", "<Plug>(dial-decrement)", {})
+      vim.api.nvim_set_keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {})
+      vim.api.nvim_set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
+    end
+  }
 end)
