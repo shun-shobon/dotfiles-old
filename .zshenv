@@ -11,6 +11,8 @@ path=(
   ${XDG_DATA_HOME}/npm/bin(N-/)
   ${XDG_DATA_HOME}/go/bin(N-/)
   ${XDG_DATA_HOME}/cargo/bin(N-/)
+  ${HOME}/.local/bin(N-/)
+  /usr/local/opt/llvm/bin(N-/)
   $path
 )
 
