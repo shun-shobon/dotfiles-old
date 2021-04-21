@@ -146,7 +146,7 @@ require("packer").startup(function ()
               ["if"] = "@function.outer",
               ["af"] = "@function.inner",
               ["ic"] = "@class.outer",
-              ["af"] = "@class.inner",
+              ["ac"] = "@class.inner",
             },
           },
           move = {
