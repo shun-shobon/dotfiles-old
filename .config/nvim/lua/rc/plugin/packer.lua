@@ -106,10 +106,19 @@ require("packer").startup(function ()
           scss = prettier_config,
           json = prettier_config,
           yaml = prettier_config,
+          haskell = {
+            function ()
+              return {
+                exe = "stylish-haskell",
+                args = { vim.api.nvim_buf_get_name(0) },
+                stdin = true,
+              }
+            end
+          }
         },
       }
 
-      vim.cmd("autocmd init BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css,*.scss,*.json,*.yaml FormatWrite")
+      vim.cmd("autocmd init BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css,*.scss,*.json,*.yaml,*.hs FormatWrite")
     end
   }
 
