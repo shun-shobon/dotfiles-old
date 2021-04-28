@@ -69,6 +69,7 @@ require("packer").startup(function ()
       lspconfig.clangd.setup { on_attach = on_attach }
       lspconfig.texlab.setup { on_attach = on_attach }
       lspconfig.bashls.setup { on_attach = on_attach }
+      lspconfig.vimls.setup { on_attach = on_attach }
       lspconfig.hls.setup {
         on_attach = on_attach,
         settings = {
