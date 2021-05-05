@@ -114,11 +114,29 @@ require("packer").startup(function ()
                 stdin = true,
               }
             end
-          }
+          },
+          c = {
+            function ()
+              return {
+                exe = "clang-format",
+                args = { vim.api.nvim_buf_get_name(0) },
+                stdin = true,
+              }
+            end
+          },
+          cpp = {
+            function ()
+              return {
+                exe = "clang-format",
+                args = { vim.api.nvim_buf_get_name(0) },
+                stdin = true,
+              }
+            end
+          },
         },
       }
 
-      vim.cmd("autocmd init BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css,*.scss,*.json,*.yaml,*.hs FormatWrite")
+      vim.cmd("autocmd init BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css,*.scss,*.json,*.yaml,*.hs,*.c,*.cpp,*.h FormatWrite")
     end
   }
 
