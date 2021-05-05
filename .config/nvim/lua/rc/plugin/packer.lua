@@ -264,15 +264,6 @@ require("packer").startup(function ()
   }
 
   use {
-    "wfxr/minimap.vim",
-    run = ":!cargo install --locked code-minimap",
-    config = function ()
-      vim.g.minimap_auto_start = 1
-      vim.g.minimap_width = 15
-    end
-  }
-
-  use {
     "monaqa/dial.nvim",
     config = function ()
       vim.api.nvim_set_keymap("n", "<C-a>", "<Plug>(dial-increment)", {})
