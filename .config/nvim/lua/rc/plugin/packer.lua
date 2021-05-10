@@ -74,7 +74,7 @@ require("packer").startup(function ()
         on_attach = on_attach,
         settings = {
           languageServerHaskell = {
-            formattingProvider = "stylish-haskell",
+            formattingProvider = "brittany",
           },
         },
       }
@@ -109,7 +109,7 @@ require("packer").startup(function ()
           haskell = {
             function ()
               return {
-                exe = "stylish-haskell",
+                exe = "brittany",
                 args = { vim.api.nvim_buf_get_name(0) },
                 stdin = true,
               }
