@@ -275,4 +275,8 @@ require("packer").startup(function ()
       vim.api.nvim_set_keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
     end
   }
+
+  use {
+    "wakatime/vim-wakatime",
+  }
 end)
