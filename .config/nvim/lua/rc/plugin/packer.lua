@@ -250,14 +250,6 @@ require("packer").startup(function ()
   }
 
   use {
-    "phaazon/hop.nvim",
-    config = function ()
-      vim.api.nvim_set_keymap("n", "<C-j>", "<Cmd>HopWord<CR>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<C-k>", "<Cmd>HopLine<CR>", { noremap = true, silent = true })
-    end,
-  }
-
-  use {
     "lewis6991/gitsigns.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
