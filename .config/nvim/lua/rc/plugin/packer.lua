@@ -161,20 +161,20 @@ require("packer").startup(function ()
       "p00f/nvim-ts-rainbow",
       "nvim-treesitter/nvim-treesitter-textobjects",
       "windwp/nvim-ts-autotag",
+      "windwp/nvim-autopairs",
     },
     run = ":TSUpdate",
     config = function ()
+      require("nvim-autopairs").setup {
+        check_ts = true,
+      }
+
       require("nvim-treesitter.configs").setup {
         ensure_installed = "all",
-        highlight = {
-          enable = true
-        },
-        rainbow = {
-          enable = true,
-        },
-        autotag = {
-          enable = true,
-        },
+        highlight = { enable = true },
+        rainbow = { enable = true },
+        autotag = { enable = true },
+        autopairs = { enable = true },
         textobjects = {
           select = {
             enable = true,
@@ -240,13 +240,6 @@ require("packer").startup(function ()
       vim.g.surround_mappings_style = "surround"
       require("surround").setup {}
     end
-  }
-
-  use {
-    "windwp/nvim-autopairs",
-    config = function ()
-      require("nvim-autopairs").setup {}
-    end,
   }
 
   use {
