@@ -22,19 +22,9 @@ vim.api.nvim_set_keymap("n", "#", "#zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "g*", "g*zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "g#", "g#zz", { noremap = true })
 
--- 数値指定がない場合は表示行でj, k移動
-vim.api.nvim_set_keymap(
-  "n",
-  "j",
-  "v:count ? 'j' : 'gj'",
-  { noremap = true, expr = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "k",
-  "v:count ? 'k' : 'gk'",
-  { noremap = true, expr = true, silent = true }
-)
+-- 表示行でj, k移動
+vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
 
 -- vx2で行末まで選択
 vim.api.nvim_set_keymap("v", "v", "$h", { noremap = true })
