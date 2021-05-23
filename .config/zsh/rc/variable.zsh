@@ -56,3 +56,6 @@ export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 
 # rustupの設定
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
+
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
