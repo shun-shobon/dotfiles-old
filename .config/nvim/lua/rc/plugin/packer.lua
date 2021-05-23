@@ -21,10 +21,20 @@ require("packer").startup(function ()
     config = function ()
       require("lualine").setup {
         options = {
-          -- テーマをOneDarkにする
-          theme = "onedark",
+          -- テーマをNordにする
+          theme = "nord",
         },
       }
+    end
+  }
+
+  use {
+    "shaunsingh/nord.nvim",
+    config = function ()
+      -- 背景を透過させる
+      vim.g.nord_disable_background = true
+
+      require("nord").set()
     end
   }
 
@@ -148,16 +158,9 @@ require("packer").startup(function ()
       "p00f/nvim-ts-rainbow",
       "nvim-treesitter/nvim-treesitter-textobjects",
       "windwp/nvim-ts-autotag",
-      "christianchiarulli/nvcode-color-schemes.vim",
     },
     run = ":TSUpdate",
     config = function ()
-      if vim.fn.has("termguicolors") == 1 then
-        vim.o.termguicolors = true
-      end
-      vim.cmd("autocmd init Colorscheme * highlight Normal guibg=none")
-      vim.cmd("colorscheme onedark")
-
       require("nvim-treesitter.configs").setup {
         ensure_installed = "all",
         highlight = {
@@ -255,7 +258,6 @@ require("packer").startup(function ()
     "lewis6991/gitsigns.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
     },
     config = function ()
       require("gitsigns").setup {
