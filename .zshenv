@@ -28,6 +28,3 @@ export LESS="-iRSL -x 4 -z -4"
 
 # gnupgのdotfileの場所を設定
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
-
-# wakatimeの設定
-export WAKATIME_HOME="${XDG_CONFIG_HOME}/wakatime"
