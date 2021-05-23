@@ -2,6 +2,17 @@
 	email = me@shun.technology
 	name = Shuntaro Nishizawa
 	signingKey = 045D846B69EB26FC
+[core]
+	pager = delta
+[delta]
+	plus-style = "syntax #012800"
+	minus-style = "syntax #340001"
+	syntax-theme = "Nord"
+	line-numbers = true
+	side-by-side = true
+	navigate = true
+[interactive]
+	diffFilter = delta --color-only
 [commit]
 	gpgsign = true
 [pull]
