@@ -23,6 +23,8 @@
 !/.config/git/**
 !/.config/npm/
 !/.config/npm/**
+!/.config/bat/
+!/.config/bat/**
 !/.cache/
 !/.cache/zsh/
 !/.cache/vim/
