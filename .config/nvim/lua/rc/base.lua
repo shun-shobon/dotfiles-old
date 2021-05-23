@@ -9,7 +9,7 @@ vim.o.viminfo = vim.o.viminfo .. ",n" .. cache_dir .. "/viminfo"
 
 -- Undo履歴を永続化
 vim.o.undodir = cache_dir .. "/undo"
-vim.o.undofile = true
+vim.bo.undofile = true
 
 -- Swapファイルの出力先を変更
 vim.o.wildmenu = true
