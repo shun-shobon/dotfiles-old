@@ -7,6 +7,7 @@ setenv -g TMUX_PLUGIN_MANAGER_PATH "${TMUX_DATA_DIR}/plugins"
 set -g @tpm_plugins ' \
   tmux-plugins/tpm \
   arcticicestudio/nord-tmux \
+  tmux-plugins/tmux-prefix-highlight \
 '
 
 run "${TMUX_DATA_DIR}/plugins/tpm/tpm"
