@@ -20,14 +20,14 @@ bind s split-window -v
 # vでペインを垂直分割
 bind v split-window -h
 
-# Prefix + hjklでペイン間を移動
-bind -r h select-pane -L
-bind -r j select-pane -D
-bind -r k select-pane -U
-bind -r l select-pane -R
+## Alt + hjklでペイン間を移動
+bind -n M-h select-pane -L
+bind -n M-j select-pane -D
+bind -n M-k select-pane -U
+bind -n M-l select-pane -R
 
-# Ctrl + hjklでペインをリサイズ 
-bind -r C-h resize-pane -L
-bind -r C-j resize-pane -D
-bind -r C-k resize-pane -U
-bind -r C-l resize-pane -R
+# Ctrl + 矢印キーでペインをリサイズ 
+bind -n C-Left  resize-pane -L
+bind -n C-Down  resize-pane -D
+bind -n C-Up    resize-pane -U
+bind -n C-Right resize-pane -R
