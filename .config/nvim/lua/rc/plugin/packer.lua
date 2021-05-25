@@ -24,8 +24,8 @@ require("packer").startup(function ()
           -- テーマをNordにする
           theme = "nord",
           -- 区切り文字を変更
-          section_separators = { "", "" },
-          component_separators = { "", "" },
+          section_separators = { "", "" },
+          component_separators = { "", "" },
         },
       }
     end
