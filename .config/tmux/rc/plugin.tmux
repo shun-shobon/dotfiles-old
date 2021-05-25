@@ -6,7 +6,7 @@ setenv -g TMUX_PLUGIN_MANAGER_PATH "${TMUX_DATA_DIR}/plugins"
 
 set -g @tpm_plugins ' \
   tmux-plugins/tpm \
-  arcticicestudio/nord-tmux \
+  shun-shobon/nord-tmux \
   tmux-plugins/tmux-prefix-highlight \
 '
 
