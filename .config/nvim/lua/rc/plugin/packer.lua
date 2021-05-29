@@ -147,10 +147,19 @@ require("packer").startup(function ()
               }
             end
           },
+          go = {
+            function ()
+              return {
+                exe = "gofmt",
+                args = { vim.api.nvim_buf_get_name(0) },
+                stdin = true,
+              }
+            end
+          }
         },
       }
 
-      vim.cmd("autocmd init BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css,*.scss,*.json,*.yaml,*.hs,*.c,*.cpp,*.h FormatWrite")
+      vim.cmd("autocmd init BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css,*.scss,*.json,*.yaml,*.hs,*.c,*.cpp,*.h,*.go FormatWrite")
     end
   }
 
