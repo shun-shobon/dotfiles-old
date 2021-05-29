@@ -16,5 +16,9 @@ zinit load woefe/git-prompt.zsh
 # fast-syntax-highlighting
 zinit light zdharma/fast-syntax-highlighting
 
+# zsh-vi-mode
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
 # autocomplete
 zinit light marlonrichert/zsh-autocomplete
