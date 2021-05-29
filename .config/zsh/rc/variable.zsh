@@ -13,7 +13,7 @@ ZSH[COMPDUMP]="${ZSH[CACHE]}/compdump"
 # 履歴
 ZSH[HISTORY]="${ZSH[DATA]}/history"
 # 補完候補が多すぎるときに尋ねない
-export LISTMAX=10000
+export LISTMAX=-1
 
 # zinitの設定
 declare -A ZINIT
