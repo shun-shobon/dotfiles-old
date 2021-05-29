@@ -2,7 +2,7 @@
 # プラグイン                                               #
 ############################################################
 
-if ! test -d "${ZINIT[HOME_DIR]}"; then
+if [ ! -d "${ZINIT[HOME_DIR]}" ]; then
     mkdir -p "${ZINIT[HOME_DIR]}"
     git clone --depth 1 https://github.com/zdharma/zinit.git "${ZINIT[BIN_DIR]}"
 fi
