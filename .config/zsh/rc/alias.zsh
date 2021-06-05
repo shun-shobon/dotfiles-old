@@ -19,3 +19,9 @@ alias nano="nvim"
 alias code="nvim"
 alias atom="nvim"
 alias subl="nvim"
+
+# fzf
+fcd() {
+  local dir=$(fd ${1:-.} -H -E .git -t d 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
