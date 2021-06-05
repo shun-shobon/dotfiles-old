@@ -57,5 +57,9 @@ export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 # rustupの設定
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 
+# fzfの設定
+export FZF_DEFAULT_COMMAND="fd -H -E .git"
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border"
+
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
