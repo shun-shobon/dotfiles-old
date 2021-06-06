@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+branch=$(git branch -vv --color=always | grep -v '^\*' | fzf +m --ansi)
+[[ -n "$branch" ]] && git checkout $(echo "$branch" | awk '{print $1}')
