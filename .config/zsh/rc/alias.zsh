@@ -25,3 +25,8 @@ fcd() {
   local dir=$(fd ${1:-.} -H -E .git -t d 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
+
+fe() {
+  local file=$(fd ${1:-.} -H -E .git -t f 2> /dev/null | fzf +m --height=100% --preview='bat --color=always --style=numbers --line-range=:500 {}')
+  [ -n "$file" ] && ${EDITOR:-nvim} "$file"
+}
