@@ -77,13 +77,20 @@ require("packer").startup(function ()
         completion.on_attach(client)
       end
 
-      lspconfig.tsserver.setup { on_attach = on_attach }
       lspconfig.gopls.setup { on_attach = on_attach }
       lspconfig.clangd.setup { on_attach = on_attach }
       lspconfig.texlab.setup { on_attach = on_attach }
       lspconfig.bashls.setup { on_attach = on_attach }
       lspconfig.vimls.setup { on_attach = on_attach }
       lspconfig.rust_analyzer.setup { on_attach = on_attach }
+      lspconfig.tsserver.setup {
+        on_attach = on_attach,
+        root_dir = lspconfig.util.root_pattern("package.json"),
+      }
+      lspconfig.denols.setup {
+        on_attach = on_attach,
+        root_dir = lspconfig.util.root_pattern("deps.ts"),
+      }
       lspconfig.hls.setup {
         on_attach = on_attach,
         settings = {
