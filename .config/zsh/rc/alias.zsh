@@ -30,3 +30,8 @@ fe() {
   local file=$(fd ${1:-.} -H -E .git -t f 2> /dev/null | fzf +m --height=100% --preview='bat --color=always --style=numbers --line-range=:500 {}')
   [ -n "$file" ] && ${EDITOR:-nvim} "$file"
 }
+
+fkill() {
+  local pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  [ -n "$pid" ] && echo "$pid" | xargs kill ${1:-9}
+}
