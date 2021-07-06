@@ -243,10 +243,6 @@ require("packer").startup(function ()
       }
 
       vim.api.nvim_set_keymap("n", "[Prefix]f", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
-
-      vim.g.nvim_tree_bindings = {
-        ["R"] = "<Cmd>NvimTreeRefresh<CR>",
-      }
     end
   }
 
