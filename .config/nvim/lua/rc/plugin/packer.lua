@@ -162,11 +162,20 @@ require("packer").startup(function ()
                 stdin = true,
               }
             end
+          },
+          rust = {
+            function ()
+              return {
+                exe = "rustfmt",
+                args = { "--edition=2018" },
+                stdin = true,
+              }
+            end
           }
         },
       }
 
-      vim.cmd("autocmd init BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css,*.scss,*.json,*.yaml,*.hs,*.c,*.cpp,*.h,*.go FormatWrite")
+      vim.cmd("autocmd init BufWritePost *.js,*.jsx,*.ts,*.tsx,*.html,*.css,*.scss,*.json,*.yaml,*.hs,*.c,*.cpp,*.h,*.go,*.rs FormatWrite")
     end
   }
 
