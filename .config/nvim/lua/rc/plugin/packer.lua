@@ -280,6 +280,8 @@ require("packer").startup(function ()
         },
       }
 
+      require("nvim-tree").setup {}
+
       vim.api.nvim_set_keymap("n", "[Prefix]f", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
     end
   }
