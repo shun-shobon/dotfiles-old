@@ -44,12 +44,43 @@ require("packer").startup(function ()
   use { "sheerun/vim-polyglot" }
 
   use {
-    "neovim/nvim-lspconfig",
-    requires = { "nvim-lua/completion-nvim", opt = true },
+    "hrsh7th/nvim-cmp",
+    requires = {
+      { "neovim/nvim-lspconfig" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "tzachar/cmp-tabnine", run = "./install.sh" },
+      { "saadparwaiz1/cmp_luasnip" },
+      { "L3MON4D3/LuaSnip" },
+    },
     config = function ()
-      local lspconfig = require("lspconfig")
-      local completion = require("completion")
+      local cmp = require "cmp"
+      local cmp_nvim_lsp = require "cmp_nvim_lsp"
+      local lspconfig = require "lspconfig"
 
+      cmp.setup {
+        snippet = {
+          expand = function (args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
+        mapping = {
+          ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+        },
+        completion = {
+          completeopt = "menu,menuone,noinsert",
+        },
+        sources = {
+          { name = "nvim_lsp" },
+          { name = "buffer" },
+          { name = "path" },
+          { name = "cmp_tabnine" },
+          { name = "luasnip" },
+        },
+      }
+
+      local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
       local on_attach = function (client, bufnr)
         local buf_set_keymap = function (...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
         local opts = { noremap = true, silent = true }
@@ -70,35 +101,33 @@ require("packer").startup(function ()
         buf_set_keymap("n", "[Prefix]]", "<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
         buf_set_keymap("n", "[Prefix][", "<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
         buf_set_keymap("n", "[Prefix]D", "<Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-
-        buf_set_keymap("i", "<Tab>", 'pumvisible() ? "<C-n>" : "<Tab>"', { noremap = true, silent = true, expr = true })
-        buf_set_keymap("i", "<S-Tab>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { noremap = true, silent = true, expr = true })
-
-        completion.on_attach(client)
       end
 
-      lspconfig.gopls.setup { on_attach = on_attach }
-      lspconfig.clangd.setup { on_attach = on_attach }
-      lspconfig.texlab.setup { on_attach = on_attach }
-      lspconfig.bashls.setup { on_attach = on_attach }
-      lspconfig.vimls.setup { on_attach = on_attach }
-      lspconfig.rust_analyzer.setup { on_attach = on_attach }
-      lspconfig.tsserver.setup {
-        on_attach = on_attach,
-        root_dir = lspconfig.util.root_pattern("package.json"),
+      local servers = {
+        { "gopls" },
+        { "clangd" },
+        { "texlab" },
+        { "bashls" },
+        { "vimls" },
+        { "rust_analyzer" },
+        { "hls" },
+        { "tsserver", opts = { root_dir = lspconfig.util.root_pattern("package.json") } },
+        { "denols", opts = { root_dir = lspconfig.util.root_pattern("mod.ts") } },
       }
-      lspconfig.denols.setup {
-        on_attach = on_attach,
-        root_dir = lspconfig.util.root_pattern("deps.ts"),
-      }
-      lspconfig.hls.setup {
-        on_attach = on_attach,
-        settings = {
-          languageServerHaskell = {
-            formattingProvider = "brittany",
-          },
-        },
-      }
+
+      for _, server in ipairs(servers) do
+        local opts = {
+          on_attach = on_attach,
+          capabilities = capabilities,
+        }
+        if (server.opts ~= nil) then
+          for k, v in pairs(server.opts) do
+            opts[k] = v
+          end
+        end
+
+        lspconfig[server[1]].setup(opts)
+      end
     end
   }
 
