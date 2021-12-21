@@ -53,6 +53,7 @@ export STACK_ROOT="${XDG_DATA_HOME}/stack"
 
 # Cargoの設定
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export RUSTC_WRAPPER="$(which sccache)"
 
 # rustupの設定
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"

@@ -9,7 +9,6 @@
 	minus-style = "syntax #340001"
 	syntax-theme = "Nord"
 	line-numbers = true
-	side-by-side = true
 	navigate = true
 [interactive]
 	diffFilter = delta --color-only
@@ -24,3 +23,5 @@
 [filter "npmrc"]
 	smudge = cat
 	clean = sed -E '/^\\/\\/.+\\/:_authToken=.+/d'
+[ghq]
+	root = ~/Projects

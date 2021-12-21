@@ -36,8 +36,11 @@ if status is-login
     set -Ux DOCKER_HOME "$XDG_CONFIG_HOME/docker"
     launchctl setenv DOCKER_HOME $DOCKER_HOME
 
+    # NVM
+    set -Ux nvm_default_version "lts"
+
     # PATHの設定
-    set PATH "$HOME/.local/bin" "$GOPATH/bin" "$CARGO_HOME/bin" "/usr/local/opt/llvm/bin" "$PATH"
+    set PATH "$HOME/.local/bin" "$GOPATH/bin" "$CARGO_HOME/bin" "/usr/local/opt/llvm/bin" "/usr/local/texlive/2021/bin/universal-darwin" "$PATH"
 
     # editorの設定
     set -Ux EDITOR "nvim"
@@ -56,6 +59,9 @@ if status is-interactive
     # fzf
     set -Ux FZF_DEFAULT_COMMAND "fd -H -E .git"
     set -Ux FZF_DEFAULT_OPTS "--height 40% --reverse --border --color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B"
+    # SSHの設定
+    set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+    gpgconf --launch gpg-agent
 
     # キーバインドをVi風に変更
     fish_vi_cursor
@@ -83,3 +89,4 @@ if status is-interactive
         curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
     end
 end
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/shun_shobon/.local/bin $PATH # ghcup-env

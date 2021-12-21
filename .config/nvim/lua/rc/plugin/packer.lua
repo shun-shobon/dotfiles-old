@@ -24,8 +24,8 @@ require("packer").startup(function ()
           -- テーマをNordにする
           theme = "nord",
           -- 区切り文字を変更
-          section_separators = { "", "" },
-          component_separators = { "", "" },
+          section_separators = { left = "", right = "" },
+          component_separators = { left =  "", right = "" },
         },
       }
     end
@@ -58,15 +58,36 @@ require("packer").startup(function ()
       local cmp = require "cmp"
       local cmp_nvim_lsp = require "cmp_nvim_lsp"
       local lspconfig = require "lspconfig"
+      local luasnip = require "luasnip"
 
       cmp.setup {
         snippet = {
           expand = function (args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         mapping = {
-          ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.confirm({ select = true })
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              local copilot_keys = vim.fn["copilot#Accept"]("")
+              if copilot_keys ~= '' then
+                vim.api.nvim_feedkeys(copilot_keys, "i", true)
+              else
+                fallback()
+              end
+            end
+          end, { "i", "s", "c" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s", "c" })
         },
         completion = {
           completeopt = "menu,menuone,noinsert",
@@ -110,7 +131,9 @@ require("packer").startup(function ()
         { "bashls" },
         { "vimls" },
         { "rust_analyzer" },
-        { "hls" },
+        { "hls", opts = { settings = { haskell = { formattingProvider = "brittany" } } } },
+        { "jsonls" },
+        { "yamlls" },
         { "tsserver", opts = { root_dir = lspconfig.util.root_pattern("package.json") } },
         { "denols", opts = { root_dir = lspconfig.util.root_pattern("mod.ts") } },
       }
@@ -128,6 +151,13 @@ require("packer").startup(function ()
 
         lspconfig[server[1]].setup(opts)
       end
+    end
+  }
+
+  use {
+    "github/copilot.vim",
+    config = function ()
+      vim.g.copilot_no_tab_map = true
     end
   }
 
@@ -267,20 +297,16 @@ require("packer").startup(function ()
     "kyazdani42/nvim-tree.lua",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = function ()
-      vim.g.nvim_tree_ignore = { ".git" }
-      vim.g.nvim_tree_quit_on_open = 1
-      vim.g.nvim_tree_indent_markers = 1
-      vim.g.nvim_tree_icons = {
-        git = {
-          unstaged = "",
-          staged = "",
-          unmerged = "",
-          renamed = "",
-          untracked = "",
+      require("nvim-tree").setup {
+        auto_close = true,
+        filters = {
+          custom = { ".git" },
+        },
+        indent_markers = 1,
+        diagnostics = {
+          enable = true,
         },
       }
-
-      require("nvim-tree").setup {}
 
       vim.api.nvim_set_keymap("n", "[Prefix]f", "<Cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
     end
